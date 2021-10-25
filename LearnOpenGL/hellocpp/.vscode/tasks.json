@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang++ générer le fichier actif",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "-I./include",
+                "-L./lib",
+                "${file}",
+                "./glad.c",
+                "-lglfw3",
+                "-framework",
+                "Cocoa",
+                "-framework",
+                "OpenGL",
+                "-framework",
+                "IOKit",
+                "-framework",
+                "CoreVideo",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compilateur : /usr/bin/clang++"
+        }
+    ]
+}
