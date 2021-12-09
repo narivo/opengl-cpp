@@ -342,13 +342,13 @@ void setupNDC(Shader shaderProgram) {
 void processInput(GLFWwindow* window, Shader shaderProgram) {
     const float cameraSpeed = 2.5f * deltaTime; // adjust accordingly
     glm::vec3 direct(0.0f, 0.0f, -1.0f);
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
         cameraPos += cameraSpeed * direct;
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
         cameraPos -= cameraSpeed * direct;
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
         cameraPos -= glm::normalize(glm::cross(cameraFront, up)) * cameraSpeed;
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
         cameraPos += glm::normalize(glm::cross(cameraFront, up)) * cameraSpeed;
     /*if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
         currentZ_idx++;
@@ -372,8 +372,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
         firstMouse = false;
     }
   
-    float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; 
+    float xoffset = - xpos + lastX;
+    float yoffset = - lastY + ypos; 
     lastX = xpos;
     lastY = ypos;
 
